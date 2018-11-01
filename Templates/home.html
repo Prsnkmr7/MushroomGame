@@ -1,0 +1,33 @@
+<div ng-controller="homeController">
+    <section class="full-width-grid" ng-keydown="key($event)" tabindex="1">
+        <div class="account-table common-pad">
+            <h1>Hi {{user.name}}</h1>
+            <div class="clearfix diamond-wrapper">
+                <div class="left">Number of step taken: {{numberOfStep}}</div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn" ng-click="startGame()">Start Game</button>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <table class="account-table">
+                <tbody>
+                    <tr class="account-table__data-row grid-x common-pad" ng-repeat="list in listItems track by $index">
+                        <td class="account-table__date pointer show-emptyBox" ng-repeat="data in list.column track by $index"
+                        ng-class="{'show-mushroom':data.isMushroom,'show-user':data.isUser}" ng-click="boxIsClicked(data)"
+                        ></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <div class="white-overlay" ng-if="transactionTimeOut" >
+            <div class="white-overlay-back diamond-wrapper">
+                <p>Match is Over. </p>
+                <p>Number of step taken: {{numberOfStep}}</p>
+                <div class="modal-footer">
+                        <button type="submit" class="btn" ng-click="resetValue()">Play Again</button>
+                    </div>
+            </div>
+        </div>
+</div>

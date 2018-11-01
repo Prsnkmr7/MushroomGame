@@ -1,0 +1,46 @@
+<div ng-controller="infoController">
+    <section class="full-width-grid">
+        <div class="account-table common-pad">
+            <h1>Mushroom Game</h1>
+        </div>
+        <section class="content-wrapper">
+            <div class="account-table common-pad">
+                <h2>Rules of the Game</h2>
+                <ul class="rules">
+                    <li>Mario is very hungry and wants to eat mushrooms but they are randomly hidden in
+                        a grid of MxN where M is number of rows and N is number of columns. Mario will always start its
+                        hunt for mushrooms from 0th cell,i.e (0,0). To help Mario move you have to use the arrow keys
+                        to reach a particular mushroom. Mario tummy will be filled only after he has eaten all the
+                        mushrooms in the grid. </li>
+                </ul>
+                <h2>Please Enter your Name and let's play</h2>
+                <form name="form" ng-submit="submitForm(form.$valid)" novalidate>
+                    <div class="modal-body">
+                        <!-- NAME -->
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" ng-model="user.name" required>
+                            <p ng-show="form.name.$error.required" class="help-block">Your
+                                name is required.</p>
+                        </div>
+                        <!-- Number of Rows -->
+                        <div class="form-group">
+                                <label>Name</label>
+                                <input type="number" name="row" class="form-control" ng-model="user.row" required>
+                                <p ng-show="form.row.$error.required" class="help-block">Row number is required</p>
+                        </div>
+                        <!-- Number of Columns -->
+                        <div class="form-group">
+                                <label>Name</label>
+                                <input type="number" name="column" class="form-control" ng-model="user.column" required>
+                                <p ng-show="form.column.$error.required" class="help-block">Column number is required.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn" ng-disabled="form.$invalid">Let's Play</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </section>
+</div>
